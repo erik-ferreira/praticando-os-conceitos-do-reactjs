@@ -55,6 +55,7 @@
   svg {
     width: 3.8rem;
     height: 3.8rem;
+    color: #3d3d3d;
   }
 
   .blockMessage {
@@ -69,7 +70,6 @@
   }
 }
 
-// text-decoration: line-through;
 .listTasks {
   margin-top: 1.5rem;
 
@@ -83,26 +83,113 @@
     align-items: flex-start;
     justify-content: space-between;
 
-    label {
-      span {
-        font-size: 0.875rem;
-        line-height: 1.225rem;
+    & + li {
+      margin-top: 0.75rem;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      outline: 0;
+
+      p {
+        font-size: 1rem;
         color: var(--gray-100);
-        margin-left: 0.75rem;
+      }
+
+      &.completed {
+        p {
+          text-decoration: line-through;
+          opacity: 0.6;
+        }
+      }
+
+      .checkboxContainer {
+        display: block;
+        position: relative;
+        padding-left: 14px;
+        margin-bottom: 18px;
+
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+
+          &:checked {
+            & ~ .checkmark {
+              border: 0;
+              background-color: var(--purple-dark);
+
+              transition: background-color 0.2s;
+
+              &:hover {
+                background-color: var(--purple);
+              }
+            }
+
+            & ~ .checkmark:after {
+              display: block;
+            }
+          }
+        }
+
+        .checkmark {
+          position: absolute;
+          top: -6px;
+          left: 0;
+          width: 1.3rem;
+          height: 1.3rem;
+          background-color: transparent;
+          border-radius: 50%;
+          cursor: pointer;
+          border: 2px solid var(--blue);
+
+          transition: border-color 0.2s;
+
+          &:hover {
+            border-color: var(--blue-dark);
+          }
+
+          &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 8px;
+            top: 5px;
+            width: 3px;
+            height: 7px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+          }
+        }
       }
     }
 
     button {
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 1.8rem;
+      height: 1.8rem;
 
       line-height: 0;
-      background: transparent;
       border: 0;
+      background: transparent;
+
+      &:hover {
+        background-color: var(--gray-400);
+        border-radius: 4px;
+
+        svg {
+          color: var(--red);
+        }
+      }
 
       svg {
-        width: 100%;
-        height: 100%;
+        color: #808080;
+        width: 1.2rem;
+        height: 1.2rem;
       }
     }
   }
