@@ -1,0 +1,71 @@
+.containerSection {
+  max-width: 736px;
+  margin: -1.6875rem auto 0;
+
+  header {
+    margin-bottom: 4rem;
+  }
+}
+
+.blockInfoTasks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  > div {
+    .title {
+      font-size: 0.875rem;
+      font-weight: bold;
+      line-height: 1rem;
+      margin-right: 0.5rem;
+
+      &.createdTasks {
+        color: var(--blue);
+      }
+
+      &.completedTasks {
+        color: var(--purple);
+      }
+    }
+
+    .counterTasks {
+      padding: 0.125rem 0.5rem;
+      background: var(--gray-400);
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: var(--gray-200);
+      border-radius: 50%;
+    }
+  }
+}
+
+.tasks {
+  height: 17.9375rem;
+  // background: #cfd;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--gray-400);
+  border-radius: 10px;
+
+  img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .blockMessage {
+    font-size: 1rem;
+    line-height: 1.4rem;
+    color: var(--gray-300);
+    text-align: center;
+
+    strong {
+      display: block;
+    }
+  }
+}
