@@ -1,10 +1,12 @@
-import { InputAddNewAssignment } from "./InputAddNewAssignment";
+import { ClipboardText, Trash } from "phosphor-react";
 
-import clipboardIcon from "../assets/clipboard.svg";
+import { InputAddNewAssignment } from "./InputAddNewAssignment";
 
 import styles from "./Main.module.scss";
 
 export function Main() {
+  const haveNoTasks = false;
+
   return (
     <section className={styles.containerSection}>
       <header>
@@ -27,14 +29,32 @@ export function Main() {
           </div>
         </div>
 
-        <div className={styles.tasks}>
-          <img src={clipboardIcon} />
+        {haveNoTasks ? (
+          <div className={styles.contentTasks}>
+            <ClipboardText color="#3D3D3D" />
 
-          <div className={styles.blockMessage}>
-            <strong>Você ainda não tem tarefas cadastradas</strong>
-            <span>Crie tarefas e organize seus itens a fazer</span>
+            <div className={styles.blockMessage}>
+              <strong>Você ainda não tem tarefas cadastradas</strong>
+              <span>Crie tarefas e organize seus itens a fazer</span>
+            </div>
           </div>
-        </div>
+        ) : (
+          <ul className={styles.listTasks}>
+            <li>
+              <label>
+                <input type="checkbox" />
+                <span>
+                  Integer urna interdum massa libero auctor neque turpis turpis
+                  semper. Duis vel sed fames integer.
+                </span>
+              </label>
+
+              <button type="button">
+                <Trash color="#808080" />
+              </button>
+            </li>
+          </ul>
+        )}
       </main>
     </section>
   );

@@ -1,4 +1,4 @@
-import iconPlus from "../assets/plus.svg";
+import { PlusCircle } from "phosphor-react";
 
 import styles from "./InputAddNewAssignment.module.scss";
 
@@ -8,7 +8,7 @@ export function InputAddNewAssignment() {
       <input type="text" placeholder="Adicione uma nova tarefa" />
 
       <button>
-        Criar <img src={iconPlus} alt="Adicionar tarefa" />
+        Criar <PlusCircle />
       </button>
     </div>
   );
